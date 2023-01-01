@@ -1,4 +1,3 @@
-package projetChiffrementAES;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -15,37 +14,6 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class MansaCrypt {
 
-    public static void main(String[] args) throws NoSuchAlgorithmException, InvalidKeySpecException {
-
-        boolean motDePasse = true;
-
-        if (motDePasse) {
-
-            //Utiliser un mot de passe et un salt pour generer la cle secrete
-            SecretKey maCleSecrete = genererCleMotDePasse("motDepasse", "plussure");
-            System.out.println("Cle a partir de mot de passe " + maCleSecrete);
-            System.out.println("Pseudo Aleatoire genere : " + generateurPseudoAleatoire().getIV());
-
-
-
-            
-
-            
-        } else {
-
-            // Generer aleatoirement la Cle Secrete
-
-            SecretKey myKey = genererCleSecrete("AES", 256);
-
-            System.out.println(myKey); 
-            
-        }
-
-       
-        
-        
-        
-    }
 
 
 

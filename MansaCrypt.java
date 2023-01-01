@@ -85,6 +85,9 @@ public class MansaCrypt {
             encryptedFile.write((chiffrei));            
         }
 
+
+        
+
         toBeCrypted.close();
         encryptedFile.close();
         key.close();
@@ -159,7 +162,17 @@ public class MansaCrypt {
 
                 System.out.println(bigIntToByteArray(data));
                 decryptedFile.write(Integer.parseInt(datadecrypted));            
+            
+            
             }
+
+
+
+
+
+
+
+
     
             toBeDeCrypted.close(); 
             decryptedFile.close();

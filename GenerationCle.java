@@ -21,7 +21,7 @@ public class GenerationCle {
     public static void main(String[] args)
 
             throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException,
-            BadPaddingException {
+            BadPaddingException, NoSuchProviderException {
 
         final String texteClair = "Ceci represente le text a crypter";
         // byte[] texteClairEnBytes = texteClair.getBytes();
@@ -67,11 +67,11 @@ public class GenerationCle {
      * @throws IllegalBlockSizeException
      * @throws NoSuchProviderException
      */
-    public static byte[] chiffrerTexte(String aChiffrer, SecretKey maCleSecret, String algo, String padding)
+    public static byte[] chiffrerTexte(String aChiffrer, SecretKey maCleSecret, String algo)
             throws NoSuchAlgorithmException,
             NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, NoSuchProviderException {
 
-        Cipher chiffrer = Cipher.getInstance(algo, padding);
+        Cipher chiffrer = Cipher.getInstance(algo);
 
         chiffrer.init(Cipher.ENCRYPT_MODE, maCleSecret);
         System.out.println("Le texte a chiffrei : " + aChiffrer);
