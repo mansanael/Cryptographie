@@ -65,6 +65,7 @@ public class Chiffrement {
         FileOutputStream ecrireFichier = new FileOutputStream(fichierDestination);
 
         byte [] blockDetexte = new byte[64];
+        
         int lecteurDeBytes;
 
         while ((lecteurDeBytes = lecteurFichier.read(blockDetexte)) != -1) {

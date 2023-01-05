@@ -17,8 +17,10 @@ public class MansaCrypt {
 
 
 
+  
     /**
-     * @param keyLength
+     * @param algorithme
+     * @param tailleDeLaCle
      * @return
      * @throws NoSuchAlgorithmException
      */
@@ -34,6 +36,13 @@ public class MansaCrypt {
     }
 
 
+    /**
+     * @param motDePasse
+     * @param salt
+     * @return
+     * @throws NoSuchAlgorithmException
+     * @throws InvalidKeySpecException
+     */
     public static SecretKey genererCleMotDePasse(String motDePasse, String salt) throws NoSuchAlgorithmException, InvalidKeySpecException {
 
         SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");

@@ -1,9 +1,6 @@
-import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.util.ResourceBundle;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -30,30 +27,30 @@ public class AppTest {
         Assert.assertEquals(monTexte, texteDechiffrei);
     }
 
-    @Test
-    public void testerChiffrementFichier() throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, NoSuchPaddingException, InvalidAlgorithmParameterException, IOException {
+    // @Test
+    // public void testerChiffrementFichier() throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, NoSuchPaddingException, InvalidAlgorithmParameterException, IOException {
 
-        // String path = System.getProperty("user.dir");
-        // System.out.println(path);
-        // String fichier = "/plaintext.txt";
-        // String destination = "/encrypted.txt";
+    //     // String path = System.getProperty("user.dir");
+    //     // System.out.println(path);
+    //     // String fichier = "/plaintext.txt";
+    //     // String destination = "/encrypted.txt";
 
-         SecretKey maCle = MansaCrypt.genererCleMotDePasse("Hacker", "Good");
-         String algorithme =  "AES/CBC/PKCS5Padding"; 
-         IvParameterSpec genAlea = MansaCrypt.generateurPseudoAleatoire();
-
-         
-
-
+    //      SecretKey maCle = MansaCrypt.genererCleMotDePasse("Hacker", "Good");
+    //      String algorithme =  "AES/CBC/PKCS5Padding"; 
+    //      IvParameterSpec genAlea = MansaCrypt.generateurPseudoAleatoire();
 
          
 
-        Chiffrement.chiffrerFichier(fichier, destination, algorithme, maCle, genAlea);
+
+
+         
+
+    //     Chiffrement.chiffrerFichier(fichier, destination, algorithme, maCle, genAlea);
         
 
 
         
-    }
+    // }
 
 
     

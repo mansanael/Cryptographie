@@ -10,29 +10,33 @@ public class App {
 
         if (motDePasse) {
 
-            //Utiliser un mot de passe et un salt pour generer la cle secrete
-            SecretKey maCleSecrete = MansaCrypt.genererCleMotDePasse("motDepasse", "plussure");
-            System.out.println("Cle a partir de mot de passe " + maCleSecrete);
-            System.out.println("Pseudo Aleatoire genere : " + MansaCrypt.generateurPseudoAleatoire().getIV());
+        //     //Utiliser un mot de passe et un salt pour generer la cle secrete
+        //     SecretKey maCleSecrete = MansaCrypt.genererCleMotDePasse("motDepasse", "plussure");
+        //     System.out.println("Cle a partir de mot de passe " + maCleSecrete);
+        //     System.out.println("Pseudo Aleatoire genere : " + MansaCrypt.generateurPseudoAleatoire().getIV());
 
 
-            String path = System.getProperty("user.dir");
-            System.out.println(path);
+        //     String path = System.getProperty("user.dir");
+        //     System.out.println(path);
 
-        System.out.println(path);
-        String fichier = "plaintext.txt";
-        String destination = "encrypted.txt";
+        // System.out.println(path);
+        // String fichier = "plaintext.txt";
+        // String destination = "encrypted.txt";
 
-        SecretKey maCle = MansaCrypt.genererCleMotDePasse("Hacker", "Good");
-        String algorithme =  "AES/CBC/PKCS5Padding"; 
-        IvParameterSpec genAlea = MansaCrypt.generateurPseudoAleatoire();
+        // SecretKey maCle = MansaCrypt.genererCleMotDePasse("Hacker", "Good");
+        // String algorithme =  "AES/CBC/PKCS5Padding"; 
+        // IvParameterSpec genAlea = MansaCrypt.generateurPseudoAleatoire();
 
         
 
-        Chiffrement.chiffrerFichier(fichier, destination, algorithme, maCle, genAlea);
-        System.out.println(maCle);
-        Dechiffrement.dechiffrerFichier(destination, "decrypter.txt", algorithme, maCle, genAlea);
-        System.out.println(maCle); 
+        // Chiffrement.chiffrerFichier(fichier, destination, algorithme, maCle, genAlea);
+        // System.out.println(maCle);
+        // Dechiffrement.dechiffrerFichier(destination, "decrypter.txt", algorithme, maCle, genAlea);
+        // System.out.println(maCle); 
+
+        System.out.println("Nombre de bits aleatoire 1" + MansaCrypt.generateurPseudoAleatoire());
+        System.out.println("Nombre de bits aleatoire 2" + MansaCrypt.generateurPseudoAleatoire());
+
 
 
 
