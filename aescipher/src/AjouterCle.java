@@ -12,17 +12,14 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class AjouterCle {
 
-    public static void main(String[] args) throws KeyStoreException, NoSuchAlgorithmException, CertificateException, IOException {
-        AjouterUneCle();
-    } 
 
-    public static void AjouterUneCle() throws KeyStoreException, NoSuchAlgorithmException, CertificateException, IOException {
+    public static void AjouterUneCle(String motDePasseBaseDeCle, SecretKey cleSecrete, String alias ) throws KeyStoreException, NoSuchAlgorithmException, CertificateException, IOException {
 
         // Creation de la base de Cle
         KeyStore baseCle = KeyStore.getInstance("JCEKS");
 
         //Chargement de la base
-        char [] motDePasse = "changeit".toCharArray();
+        char [] motDePasse = motDePasseBaseDeCle.toCharArray();
         String path = "/usr/lib/jvm/java-17-openjdk-amd64/lib/security/cacerts";
         
         FileInputStream cle = new FileInputStream(path);
@@ -35,7 +32,7 @@ public class AjouterCle {
 
         // Creer un objet de type SecretKey
 
-        SecretKey maCleSecrete = new SecretKeySpec(new String("basecle").getBytes(), "DSA");
+        SecretKey maCleSecrete = new SecretKeySpec((cleSecrete.getEncoded()), "AES");
 
         // Creer un objet de type SecretKeyEntry
 
@@ -43,7 +40,7 @@ public class AjouterCle {
         
         // Creer l'entree de la base de cle
 
-        baseCle.setEntry("EntreeCle", entreeCleSecrete, parametreDeProtection);
+        baseCle.setEntry(alias, entreeCleSecrete, parametreDeProtection);
 
 
         // Enregistrer la baseCle

@@ -15,17 +15,14 @@ import javax.crypto.SecretKey;
 
 public class LireCleJava {
 
-    public static void main(String[] args) throws KeyStoreException, NoSuchAlgorithmException, CertificateException, IOException, UnrecoverableEntryException {
-        LireUneCle();
-    } 
 
-    public static void LireUneCle() throws KeyStoreException, NoSuchAlgorithmException, CertificateException, IOException, UnrecoverableEntryException {
+    public static SecretKey LireUneCle(String motDePasseBaseDeCle,  String alias) throws KeyStoreException, NoSuchAlgorithmException, CertificateException, IOException, UnrecoverableEntryException {
 
         // Creation de la base de Cle
         KeyStore baseCle = KeyStore.getInstance("JCEKS");
 
         //Chargement de la base
-        char [] motDePasse = "changeit".toCharArray();
+        char [] motDePasse = motDePasseBaseDeCle.toCharArray();
         // String path = "/usr/lib/jvm/java-17-openjdk-amd64/lib/security/cacerts";
         
         FileInputStream cle = new FileInputStream("BaseCle");
@@ -36,13 +33,13 @@ public class LireCleJava {
 
         KeyStore.ProtectionParameter parametreDeProtection = new KeyStore.PasswordProtection(motDePasse);
 
-        KeyStore.SecretKeyEntry cleSecrete = (KeyStore.SecretKeyEntry)baseCle.getEntry("EntreeCle", parametreDeProtection);
+        KeyStore.SecretKeyEntry cleSecrete = (KeyStore.SecretKeyEntry)baseCle.getEntry(alias, parametreDeProtection);
 
         // Enregistrer la baseCle
 
 
         FileOutputStream baseSortie = null;
-        baseSortie = new FileOutputStream("nouvellCle");
+        baseSortie = new FileOutputStream("BaseCle");
         baseCle.store(baseSortie,motDePasse);
 
         // Creation de l'objet SecretKey
@@ -51,6 +48,8 @@ public class LireCleJava {
         System.out.println(maReCleSecrete.getEncoded());
 
         System.out.println("Cle enregistrer");
+
+        return maReCleSecrete;
 
         
     }
